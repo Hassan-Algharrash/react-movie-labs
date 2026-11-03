@@ -27,7 +27,10 @@ const SiteHeader = () => {
     { label: "Home", path: "/" },
     { label: "Favorites", path: "/movies/favorites" },
     { label: "Upcoming", path: "/movies/upcoming" },
-    { label: "Option 4", path: "/" },
+    { label: "Top Rated", path: "/movies/top-rated" },
+    { label: "Popular", path: "/movies/popular" },
+    { label: "Playing Now", path: "/movies/playing" },
+
   ];
 
   const handleMenuSelect = (pageURL) => {
@@ -64,7 +67,7 @@ const SiteHeader = () => {
                   id="menu-appbar"
                   anchorEl={anchorEl}
                   anchorOrigin={{
-                    vertical: "top",
+                    vertical: "bottom",
                     horizontal: "right",
                   }}
                   keepMounted
