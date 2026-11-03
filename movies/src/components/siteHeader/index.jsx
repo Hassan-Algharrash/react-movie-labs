@@ -77,6 +77,16 @@ const SiteHeader = () => {
                   }}
                   open={open}
                   onClose={() => setAnchorEl(null)}
+                  slotProps={{
+                    paper: {
+                      sx: {
+                        minWidth: 180,
+                        borderRadius: 1,
+                        boxShadow: "0px 4px 20px rgba(0,0,0,0.5)",
+                        backgroundColor: "light grey", 
+                      }
+                    }
+                  }}
                 >
                   {menuOptions.map((opt) => (
                     <MenuItem
