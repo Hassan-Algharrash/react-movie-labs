@@ -11,7 +11,7 @@ import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews";
 import Grid from "@mui/material/Grid";
 import MovieCard from "../movieCard";
-import AddToFavoritesIcon from "../cardIcons/AddToFavorites";
+import AddToFavoritesIcon from "../cardIcons/addToFavorites";
 
 
 
