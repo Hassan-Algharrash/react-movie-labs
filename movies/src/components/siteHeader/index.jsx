@@ -82,7 +82,7 @@ const SiteHeader = () => {
                       sx: {
                         minWidth: 180,
                         borderRadius: 1,
-                        boxShadow: "0px 4px 20px rgba(0,0,0,0.5)",
+                        boxShadow: "0px 5px 20px rgba(0,0,0,0.5)",
                         backgroundColor: "light grey", 
                       }
                     }
