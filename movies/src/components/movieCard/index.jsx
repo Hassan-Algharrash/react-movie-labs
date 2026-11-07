@@ -14,6 +14,8 @@ import Grid from "@mui/material/Grid";
 import Avatar from '@mui/material/Avatar';
 import img from '../../images/film-poster-placeholder.png';
 import { Link } from "react-router";
+import Rating from "@mui/material/Rating";
+
 
 export default function MovieCard({ movie, action }) {
 
@@ -37,7 +39,10 @@ export default function MovieCard({ movie, action }) {
     borderRadius: "50px", 
     borderStyle: "groove",
     transition: "transform .5s", 
-    "&:hover": { transform: "scale(1.03)" } 
+    "&:hover": { transform: "scale(1.05)" },
+    backgroundColor: "#4f160c",
+    borderColor: "#3f3b3b",
+    
   }}>
       <CardHeader
         avatar={
@@ -48,7 +53,7 @@ export default function MovieCard({ movie, action }) {
           ) : null
         }
         title={
-          <Typography variant="h5" component="p">
+          <Typography variant="h5" component="p" sx={{fontFamily: "Times, Times New Roman, serif", color: "#dbcd9f"}}>
             {movie.title}{" "}
           </Typography>
         }
@@ -69,11 +74,15 @@ export default function MovieCard({ movie, action }) {
               {movie.release_date}
             </Typography>
           </Grid>
-          <Grid size={{xs: 6}}>
-            <Typography variant="h6" component="p">
-              <StarRateIcon fontSize="small" />
-              {"  "} {movie.vote_average}{" "}
-            </Typography>
+          <Grid size={{ xs: 6 }}>
+            <Rating
+              name="read-only"
+              value={movie.vote_average / 2}
+              precision={0.5}
+              readOnly
+              size="big"
+              sx={{ color: "#f8ce37" }}
+            />
           </Grid>
         </Grid>
       </CardContent>
