@@ -8,7 +8,11 @@ import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
 import Drawer from "@mui/material/Drawer";
-import MovieReviews from "../movieReviews"
+import MovieReviews from "../movieReviews";
+import Grid from "@mui/material/Grid";
+import MovieCard from "../movieCard";
+import AddToFavoritesIcon from "../cardIcons/AddToFavorites";
+
 
 
 const root = {
@@ -21,7 +25,7 @@ const root = {
 };
 const chip = { margin: 0.5 };
 
-const MovieDetails = ({ movie }) => {  // Don't miss this!
+const MovieDetails = ({ movie, recommendations }) => {  // Don't miss this!
 const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
@@ -72,6 +76,20 @@ const [drawerOpen, setDrawerOpen] = useState(false);
           </li>
         ))}
       </Paper>
+
+      <Typography variant="h5" component="h3">
+        Recommended Movies
+      </Typography>
+
+       <Grid container>
+        {recommendations?.results && recommendations.results.slice(0, 4).map((m) => (
+          <Grid key={m.id} item xs={12} sm={6} md={3} sx={{padding: "20px"}}>
+            <MovieCard movie={m} action={(movie) => <AddToFavoritesIcon movie={movie} />} />
+          </Grid>
+        ))}
+      </Grid>
+       
+
        <Fab
         color="secondary"
         variant="extended"
