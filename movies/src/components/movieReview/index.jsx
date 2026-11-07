@@ -1,4 +1,3 @@
-import React from "react";
 import Typography from "@mui/material/Typography";
 
 const MovieReview =  ({ review }) => {
@@ -15,4 +14,3 @@ const MovieReview =  ({ review }) => {
   );
 };
 export default MovieReview
-
