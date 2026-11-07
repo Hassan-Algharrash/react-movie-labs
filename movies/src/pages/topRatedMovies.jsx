@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import PageTemplate from '../components/templateMovieListPage'
 import { getTopRatedMovies } from "../api/tmdb-api";
+import AddToFavoritesIcon from "../components/cardIcons/addToFavorites";
+
 
 const TopRatedPage = (props) => {
   const [movies, setMovies] = useState([]);
@@ -25,7 +27,9 @@ const TopRatedPage = (props) => {
     <PageTemplate
       title='Top Rated Movies'
       movies={movies}
-      selectFavorite={addToFavorites}
+      action={(movie) => {
+        return <AddToFavoritesIcon movie={movie} />;
+      }}
     />
   );
 };
