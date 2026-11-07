@@ -31,7 +31,14 @@ export default function MovieCard({ movie, action }) {
   };
   
   return (
-    <Card>
+    <Card
+    sx={{ 
+    maxWidth: 350, 
+    borderRadius: "50px", 
+    borderStyle: "groove",
+    transition: "transform .5s", 
+    "&:hover": { transform: "scale(1.03)" } 
+  }}>
       <CardHeader
         avatar={
           movie.favorite ? (

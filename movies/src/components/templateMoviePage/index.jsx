@@ -12,7 +12,6 @@ const TemplateMoviePage = ({ movie, children }) => {
     getMovieImages(movie.id).then((images) => {
       setImages(images);
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
