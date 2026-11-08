@@ -5,6 +5,7 @@ import { getMovie } from '../api/tmdb-api'
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../components/spinner';
 import { getMovieRecommendations } from '../api/tmdb-api' 
+import { getMovieCredits } from '../api/tmdb-api' 
 
 
 const MoviePage = (props) => {
@@ -23,23 +24,27 @@ const MoviePage = (props) => {
     queryFn: getMovieRecommendations,
   })
 
-  if (isPending || isRecsPending) {
+  const { data: credits, isPending: isCreditsPending, isError: isCreditsError } = useQuery({
+    queryKey: ['credits', { id: id }],
+    queryFn: getMovieCredits,
+  })
+
+  if (isPending || isRecsPending || isCreditsPending) {
     return <Spinner />;
   }
 
-  if (isError|| isRecError) {
+  if (isError|| isRecError || isCreditsError) {
     return <h1>{error.message}</h1>;
   }
 
   const recommendedMovies = recommendations
-
 
   return (
     <>
       {movie ? (
         <>
           <PageTemplate movie={movie}>
-            <MovieDetails movie={movie} recommendations={recommendedMovies} />
+            <MovieDetails movie={movie} recommendations={recommendedMovies} credits={credits.cast} />
           </PageTemplate>
         </>
       ) : (

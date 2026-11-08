@@ -25,7 +25,7 @@ const root = {
 };
 const chip = { margin: 0.5 };
 
-const MovieDetails = ({ movie, recommendations }) => {  // Don't miss this!
+const MovieDetails = ({ movie, recommendations, credits }) => {  // Don't miss this!
 const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
@@ -77,13 +77,26 @@ const [drawerOpen, setDrawerOpen] = useState(false);
         ))}
       </Paper>
 
+      <Paper
+        component="ul"
+        sx={{...root}}>
+        <li>
+          <Chip label="Cast" sx={{...chip}} color="primary"/>
+        </li>
+        {credits.map((c) => (
+          <li key={c.name}>
+            <Chip label={c.name} sx={{...chip}} />
+          </li>
+        ))}
+        </Paper>
+
       <Typography variant="h5" component="h3">
         Recommended Movies
       </Typography>
 
        <Grid container>
         {recommendations?.results && recommendations.results.slice(0, 4).map((m) => (
-          <Grid key={m.id} item xs={12} sm={6} md={3} sx={{padding: "20px"}}>
+          <Grid key={m.id} size={{ xs: 12, sm: 6, md: 3 }} sx={{padding: "20px"}}>
             <MovieCard movie={m} action={(movie) => <AddToFavoritesIcon movie={movie} />} />
           </Grid>
         ))}
