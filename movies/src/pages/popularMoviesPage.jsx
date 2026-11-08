@@ -4,7 +4,7 @@ import { getPopularMovies } from "../api/tmdb-api";
 import AddToFavoritesIcon from "../components/cardIcons/addToFavorites";
 import { useQuery } from "@tanstack/react-query";
 import Spinner from "../components/spinner";
-
+import AddToPlaylistIcon from "../components/cardIcons/addToPlaylist";
 
 const PopularPage = (props) => {
   const { data, error, isPending, isError } = useQuery({
@@ -32,7 +32,12 @@ const PopularPage = (props) => {
       title='Popular Movies'
       movies={movies}
       action={(movie) => {
-        return <AddToFavoritesIcon movie={movie} />;
+        return (
+          <>
+        <AddToFavoritesIcon movie={movie} />;
+        <AddToPlaylistIcon movie={movie}/>
+        </>
+        )
       }}
     />
   );
