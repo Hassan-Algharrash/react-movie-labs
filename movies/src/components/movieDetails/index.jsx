@@ -83,7 +83,7 @@ const [drawerOpen, setDrawerOpen] = useState(false);
         <li>
           <Chip label="Cast" sx={{...chip}} color="primary"/>
         </li>
-        {credits.map((c) => (
+        {credits.slice(0,10).map((c) => (
           <li key={c.name}>
             <Chip label={c.name} sx={{...chip}} />
           </li>
