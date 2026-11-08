@@ -95,8 +95,8 @@ const [drawerOpen, setDrawerOpen] = useState(false);
       </Typography>
 
        <Grid container>
-        {recommendations?.results && recommendations.results.slice(0, 4).map((m) => (
-          <Grid key={m.id} size={{ xs: 12, sm: 6, md: 3 }} sx={{padding: "20px"}}>
+        {recommendations.results.slice(0, 4).map((m) => (
+          <Grid key={m.id} size={{ xs: 12, sm: 6, md: 3 }} sx={{padding: "20px", backgroundColor: "#623d0923"}}>
             <MovieCard movie={m} action={(movie) => <AddToFavoritesIcon movie={movie} />} />
           </Grid>
         ))}
